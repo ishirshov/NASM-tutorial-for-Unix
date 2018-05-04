@@ -23,5 +23,6 @@ set disassembly-flavor intel
 set disassemble-next-line on
 file bin/${t_name}
 b _start
+run
 EOT
 done
