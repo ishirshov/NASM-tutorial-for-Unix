@@ -7,6 +7,7 @@
     %define SYS_CLOSE   6
     %define SYS_CREATE  8
     %define SYS_LSEEK   19
+    %define SYS_BRK     45
 
     %define STDIN       0
     %define STDOUT      1
