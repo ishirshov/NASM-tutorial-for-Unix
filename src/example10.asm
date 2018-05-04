@@ -21,7 +21,4 @@ print_stdout:
     mov ebx, STDOUT
     int 80h
 
-exit:
-    mov eax, SYS_EXIT
-    xor ebx, ebx
-    int 80h
+    sys_exit

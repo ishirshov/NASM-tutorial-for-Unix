@@ -1,3 +1,5 @@
+%include "defines.inc"
+
 section .bss
     sum resb 5
 
@@ -26,22 +28,8 @@ add_loop:
     dec esi
     loop add_loop
 
-    mov ecx, msg
-    mov edx, len
-    call print
-
-    mov ecx, sum
-    mov edx, 5
-    call print
-    jmp exit
-
-print:
-    mov ebx, 1
-    mov eax, 4 
-    int 80h
-    ret
-
-exit:
-    mov eax, 1
-    xor ebx, ebx
-    int 80h
+    sys_call SYS_WRITE, STDOUT, msg, len
+    sys_call SYS_WRITE, STDOUT, sum, 5
+    
+    sys_exit
+    

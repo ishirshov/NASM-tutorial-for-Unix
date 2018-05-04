@@ -18,9 +18,7 @@ l1:
                     ; while ECX is not zero.
                     ; Push to stack current ECX value.
 
-    mov ecx, num
-    mov edx, 1
-    call print_out
+    sys_call SYS_WRITE, STDOUT, num, 1
 
     pop ecx         ; Restore ECX value
 
@@ -31,13 +29,4 @@ l1:
     add eax, '0'
     loop l1
 
-exit:
-    mov eax, SYS_EXIT
-    xor ebx, ebx
-    int 80h
-
-print_out:
-    mov eax, SYS_WRITE
-    mov ebx, STDOUT
-    int 80h
-    ret
+    sys_exit

@@ -1,3 +1,5 @@
+%include "defines.inc"
+
 section .bss
     res resb 1
 
@@ -16,22 +18,7 @@ _start:
     or al, 30h
     mov [res], ax
 
-    mov ecx, msg
-    mov edx, len
-    call print
-
-    mov ecx, res
-    mov edx, 1
-    call print
-    jmp exit
-
-print:
-    mov ebx, 1
-    mov eax, 4 
-    int 80h
-    ret
-
-exit:
-    mov eax, 1
-    xor ebx, ebx
-    int 80h
+    sys_call SYS_WRITE, STDOUT, msg, len
+    sys_call SYS_WRITE, STDOUT, res, 1
+    
+    sys_exit

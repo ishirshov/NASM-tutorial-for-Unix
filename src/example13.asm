@@ -11,9 +11,7 @@ section .text
     global _start
 
 _start:
-    mov ecx, msg
-    mov edx, len
-    call print
+    sys_call SYS_WRITE, STDOUT, msg, len
 
     ; Example with numbers
     mov eax, 3
@@ -24,19 +22,6 @@ _start:
     mov [sum], eax
 
     ; Print out
-    mov ecx, sum
-    mov edx, 1
-    call print
-    jmp exit
-
-print:
-    mov ebx, 1
-    mov eax, 4 
-    int 80h
-    ret
-
-exit:
-    mov eax, 1
-    xor ebx, ebx
-    int 80h
-
+    sys_call SYS_WRITE, STDOUT, sum, 1
+    
+    sys_exit
