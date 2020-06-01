@@ -10,7 +10,7 @@ SRC_DIR    = src
 OBJ_DIR    = obj
 BIN_DIR    = bin
 
-OBJECTS    = helloworld
+OBJECTS    = helloworld helloworld-len
 
 
 all: $(OBJ_DIR) $(BIN_DIR) $(OBJECTS)
