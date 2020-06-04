@@ -6,19 +6,18 @@ global _start
 
 _start:
     
-    mov ebx, msg
-    mov eax, ebx
+    mov eax, msg        ; Используем адрес строки msg для подсчета длины
 
 nextchar:
-    cmp byte [eax], 0
-    jz  finished
-    inc eax
-    jmp nextchar
+    cmp byte [eax], 0   ; Ищем терминальный символ 0 в конце строки
+    jz  finished        ; Если ZF флаг был установлен то переходим к метке finished
+    inc eax             ; Применяем адресную арифметику для смещения "указателя" на текущий символ строки
+    jmp nextchar        ; Безусловный переход в метке nextchar
 
 finished:
-    sub eax, ebx
+    sub eax, msg        ; Подсчет длины строки в байтах используя начальный адрес строки
 
-    mov edx, eax
+    mov edx, eax        ; В EAX находится длина строки в байтах 
     mov ecx, msg
     mov ebx, 1
     mov eax, 4
