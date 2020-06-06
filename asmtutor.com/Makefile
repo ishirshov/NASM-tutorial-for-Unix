@@ -10,7 +10,7 @@ SRC_DIR    = src
 OBJ_DIR    = obj
 BIN_DIR    = bin
 
-OBJECTS    = helloworld helloworld-len helloworld-inc subroutines
+OBJECTS    = helloworld helloworld-len helloworld-inc helloworld-lf subroutines helloworld-args
 
 
 all: $(OBJ_DIR) $(BIN_DIR) $(OBJECTS)
