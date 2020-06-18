@@ -8,7 +8,7 @@ if [ "${1}" = "serial-only" ]; then
 else
     EXTRA_ARGS='-serial stdio'
 fi
-export PATH="/home/buildroot/Documents/Embedded/buildroot-2020.05/output/host/bin:${PATH}"
+
 qemu-system-x86_64 \
 	-M pc \
 	-kernel ${BOOT_DIR}/bzImage \
