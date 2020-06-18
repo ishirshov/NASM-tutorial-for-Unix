@@ -1,9 +1,0 @@
-tui enable
-layout src
-layout regs
-set language asm
-set disassembly-flavor intel
-set disassemble-next-line on
-file bin/`e_name`
-b _start
-run
