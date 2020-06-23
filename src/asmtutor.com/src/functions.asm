@@ -1,3 +1,49 @@
+; Функция itoa переводит числа в строку и выводит на экран
+iprint:
+    push    eax
+    push    ebx
+    push    ecx
+    push    edx
+    mov     ecx, 0      ; Счетчик количества байт для вывода
+
+divideLoop:
+    inc     ecx
+    mov     edx, 0
+    mov     esi, 10     ; Поместить делитель в регистр ESI
+    idiv    esi         ; Выполнить деление со знаком. Целая часть будет находиться в 
+                        ; EAX, остаток от деления в EDX 
+    add     edx, 48     ; Остаток перевести в ASCII символ
+    push    edx         ; Поместить символ в стек
+    cmp     eax, 0      ; Проверить, может ли EAX еще раз поделить?
+    jnz     divideLoop
+
+printLoop:
+    dec     ecx         ; Выводить символы по порядку
+    mov     eax, esp    ; Поместить указатель на стек для печати
+    call    sprint
+    pop     eax         ; Убрать последний символ из стека для печати следующего
+    cmp     ecx, 0      ; Если нечего больше печатать ECX==0 выйти из функции
+    jnz     printLoop
+
+    pop     esi
+    pop     edx
+    pop     ecx
+    pop     eax
+    ret
+
+; Функция itoaLF вывод число как сторку с LF символом на конце
+iprintLF:
+    call iprint
+
+    push    eax
+    mov     eax, 0Ah
+    push    eax
+    mov     eax, esp
+    call    sprint
+    pop     eax
+    pop     eax
+    ret
+
 ; Функция подсчитывает длину строку C формата
 slen:
     push    ebx
