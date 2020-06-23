@@ -9,7 +9,9 @@ else
     EXTRA_ARGS='-serial stdio'
 fi
 
-qemu-system-x86_64 \
+export PATH="/home/buildroot/Documents/Embedded/buildroot-2020.05/output/host/bin:${PATH}"
+
+qemu-system-i386 \
 	-M pc \
 	-kernel ${BOOT_DIR}/bzImage \
 	-virtfs local,path=${SRC_DIR},mount_tag=host0,security_model=none,id=host0 \
