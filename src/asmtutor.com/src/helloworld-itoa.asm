@@ -10,7 +10,7 @@ nextNumber:
     inc     ecx         ; Инкремент счетчика на 1
 
     mov     eax, ecx
-    call    iprintLF
+    call    iprintLF    ; Вызов функции itoa
     cmp     ecx, 10     ; Текущий счетчик равен 10?
     jne     nextNumber
 
