@@ -1,9 +1,9 @@
 ; Функция itoa переводит числа в строку и выводит на экран
 iprint:
     push    eax
-    push    ebx
     push    ecx
     push    edx
+    push    esi
     mov     ecx, 0      ; Счетчик количества байт для вывода
 
 divideLoop:
@@ -33,7 +33,7 @@ printLoop:
 
 ; Функция itoaLF вывод число как сторку с LF символом на конце
 iprintLF:
-    call iprint
+    call    iprint
 
     push    eax
     mov     eax, 0Ah

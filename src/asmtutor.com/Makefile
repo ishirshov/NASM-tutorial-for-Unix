@@ -11,7 +11,8 @@ OBJ_DIR    = obj
 BIN_DIR    = bin
 
 OBJECTS    = helloworld helloworld-len helloworld-inc helloworld-lf \
-			 subroutines helloworld-args helloworld-input helloworld-10
+			 subroutines helloworld-args helloworld-input helloworld-10 \
+			 helloworld-itoa
 
 
 all: $(OBJ_DIR) $(BIN_DIR) $(OBJECTS)
