@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SRC_DIR="$(pwd)/src"
 BOOT_DIR="$(pwd)/boot"
