@@ -12,7 +12,8 @@ BIN_DIR    = bin
 
 OBJECTS    = helloworld helloworld-len helloworld-inc helloworld-lf \
 			 subroutines helloworld-args helloworld-input helloworld-10 \
-			 helloworld-itoa
+			 helloworld-itoa calculator-addition calculator-substraction \
+			 calculator-multiplication calculator-division calculator-atoi
 
 
 all: $(OBJ_DIR) $(BIN_DIR) $(OBJECTS)
